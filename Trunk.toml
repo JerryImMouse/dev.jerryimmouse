@@ -1,0 +1,15 @@
+[build]
+target = "index.html"
+
+[[hooks]]
+stage = "pre_build"
+command = "tailwindcss"
+command_arguments = [
+    "-i",
+    "./input.css",
+    "-o",
+    "./style/output.css",
+    "--minify",
+    "--config",
+    "./tailwind.config.js",
+]
