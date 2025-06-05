@@ -1,9 +1,11 @@
 use crate::components::Tag;
 use leptos::prelude::*;
+use leptos_meta::Title;
 
 #[component]
 pub fn Greet() -> impl IntoView {
     view! {
+        <Title text="dev.jerryimmouse" />
         <main class="flex flex-col items-center justify-center min-h-screen p-6 bg-transparent text-gray-100 relative z-10">
             <div class="animate-fade-in-up text-center space-y-4">
                 <h1 class="text-5xl font-bold text-white drop-shadow-md">"JerryImMouse"</h1>
@@ -19,7 +21,7 @@ pub fn Greet() -> impl IntoView {
                     href="#projects"
                     class="mt-6 inline-block px-6 py-3 bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white rounded-xl shadow transition duration-300 hover:-translate-y-0.5"
                 >
-                    "My Projects"
+                    "View My Projects"
                 </a>
             </div>
             <div class="absolute -top-32 -left-32 w-[400px] h-[400px] bg-purple-600 rounded-full mix-blend-overlay filter blur-3xl opacity-30 animate-pulse-fast"></div>
