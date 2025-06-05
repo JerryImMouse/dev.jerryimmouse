@@ -6,8 +6,8 @@ use crate::components::{DefaultToaster, Footer, NavBar, ParticlesBackground};
 #[component]
 pub fn Page() -> impl IntoView {
     view! {
-        <ParticlesBackground />
         <div class="flex flex-col min-h-screen text-gray-100 bg-transparent scroll-smooth">
+            <ParticlesBackground />
             <NavBar />
             <Outlet />
             <DefaultToaster />

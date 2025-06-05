@@ -37,7 +37,7 @@ pub fn ParticlesBackground() -> impl IntoView {
         <div
             id="particles-js"
             node_ref=node_ref
-            class="fixed top-0 left-0 inset-0 z-0 w-full h-screen bg-slate-900"
+            class="fixed top-0 left-0 w-full h-full bg-slate-900 z-0"
         ></div>
     }
 }

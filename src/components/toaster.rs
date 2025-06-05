@@ -17,7 +17,7 @@ where
 {
     let toaster = expect_context::<Toaster>();
     view! {
-        <div class="fixed right-4 bottom-5 max-w-md space-y-2 z-50">
+        <div class="fixed right-4 bottom-5 z-50 w-full max-w-md px-4 md:px-0 space-y-2">
             <For
                 each=move || toaster.toasts.get() key=|toast| *toast let:toast
             >
