@@ -1,0 +1,63 @@
+name: Release to Github Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write # for committing to gh-pages branch.
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  Github-Pages-Release:
+
+    timeout-minutes: 10
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install nightly Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy, rustfmt
+
+      - name: Add WASM target
+        run: rustup target add wasm32-unknown-unknown
+
+      - name: lint
+        run: cargo clippy & cargo fmt
+
+      - name: Download and install tailwindCSS binary
+        run: npm install -D tailwindcss && npx tailwindcss -i ./input.css -o ./style/output.css
+
+      - name: Download and install Trunk binary
+        run: wget -qO- https://github.com/trunk-rs/trunk/releases/download/v0.18.4/trunk-x86_64-unknown-linux-gnu.tar.gz | tar -xzf-
+
+      - name: Build with Trunk
+        run: ./trunk build --release --public-url "${GITHUB_REPOSITORY#*/}"
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        with:
+          enablement: true
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: './dist'
+
+      - name: Deploy to GitHub Pages 🚀
+        id: deployment
+        uses: actions/deploy-pages@v3
