@@ -39,19 +39,11 @@ jobs:
       - name: lint
         run: cargo clippy & cargo fmt
 
-      - name: Install TailwindCSS binary
-        run: |
-          mkdir -p ~/.tailwindcss/bin
-          cd ~/.tailwindcss/bin
-          curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/latest/download/tailwindcss-linux-amd64
-          chmod +x tailwindcss-linux-amd64
-          mv tailwindcss-linux-amd64 tailwindcss
-      
-      - name: Add TailwindCSS binary to PATH
-        run: echo "$HOME/.tailwindcss/bin" >> $GITHUB_PATH
+      - name: Install TailwindCSS
+        run: npm install -g tailwindcss
 
       - name: Build TailwindCSS
-        run: tailwindcss -i ./input.css -o ./style/output.css
+        run: npx tailwindcss -i ./input.css -o ./style/output.css
 
       - name: Download and install Trunk binary
         run: wget -qO- https://github.com/trunk-rs/trunk/releases/download/v0.18.4/trunk-x86_64-unknown-linux-gnu.tar.gz | tar -xzf-
