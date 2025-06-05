@@ -12,9 +12,9 @@ pub fn Greet() -> impl IntoView {
                 <p class="text-xl text-white">"I build some shit in Rust just for fun!"</p>
 
                 <div class="flex flex-wrap justify-center gap-3 mt-4">
-                    <Tag url="https://youtube.com" img="./public/images/rust-logo-512x512.png" text="Rust"/>
-                    <Tag url="https://youtube.com" img="./public/images/typescript-icon-2048x2048.png" text="TypeScript"/>
-                    <Tag url="https://youtube.com" img="./public/images/csharp-logo-1820x2048.png" text="C#"/>
+                    <Tag url="https://www.rust-lang.org/" img="./public/images/rust-logo-512x512.png" text="Rust"/>
+                    <Tag url="https://www.typescriptlang.org/" img="./public/images/typescript-icon-2048x2048.png" text="TypeScript"/>
+                    <Tag url="https://dotnet.microsoft.com/en-us/" img="./public/images/csharp-logo-1820x2048.png" text="C#"/>
                 </div>
 
                 <a

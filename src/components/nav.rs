@@ -9,7 +9,7 @@ pub fn NavBar() -> impl IntoView {
                 <ul class="flex space-x-2 gap-2">
                     <li><a href="https://github.com/JerryImMouse" target="_blank" class="hover:underline">"My GitHub"</a></li>
                     <li><a href="#projects" class="hover:underline">"My Projects"</a></li>
-                    <li><a href="/" class="hover:underline">"Home"</a></li>
+                    <li><a href="" class="hover:underline">"Home"</a></li>
                 </ul>
             </div>
         </nav>
