@@ -16,7 +16,7 @@ pub fn App() -> impl IntoView {
     view! {
         <Link rel="shortcut icon" type_="image/ico" href="/public/favicon.ico"/>
         <Title text="dev.jerryimmouse" />
-        <Router>
+        <Router base="/dev.jerryimmouse">
             <Routes fallback=HotFoundPage>
                 <ParentRoute path=path!("/") view=Page>
                     <Route path=path!("") view=Home />

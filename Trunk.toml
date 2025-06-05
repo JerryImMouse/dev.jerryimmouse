@@ -1,5 +1,6 @@
 [build]
 target = "index.html"
+public_url = "/dev.jerryimmouse"
 
 [[hooks]]
 stage = "pre_build"
