@@ -2,7 +2,7 @@ name: Release to Github Pages
 
 on:
   push:
-    branches: [main]
+    branches: [master]
   workflow_dispatch:
 
 permissions:
@@ -48,7 +48,7 @@ jobs:
           mv tailwindcss-linux-amd64 tailwindcss
       
       - name: Add TailwindCSS binary to PATH
-        run: echo "$HOME/.tailwindcss/" >> $GITHUB_PATH
+        run: echo "$HOME/.tailwindcss/bin" >> $GITHUB_PATH
 
       - name: Build TailwindCSS
         run: tailwindcss -i ./input.css -o ./style/output.css
