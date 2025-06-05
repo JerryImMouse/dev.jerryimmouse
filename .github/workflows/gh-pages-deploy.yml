@@ -48,7 +48,7 @@ jobs:
           mv tailwindcss-linux-amd64 tailwindcss
       
       - name: Add TailwindCSS binary to PATH
-        run: echo "$HOME/.tailwindcss/
+        run: echo "$HOME/.tailwindcss/" >> $GITHUB_PATH
 
       - name: Build TailwindCSS
         run: tailwindcss -i ./input.css -o ./style/output.css
