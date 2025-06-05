@@ -9,25 +9,25 @@ pub fn ProjectsShowcase() -> impl IntoView {
         Project::new(
             "Ultor",
             "Discord bot written in Rust with serenity-lib for SS14 authorization & server management. Currently closed source, because im too shy.",
-            "url",
+            "https://shattereddisk.github.io/rickroll/rickroll.mp4",
             "./public/images/serenity-logo.png",
         ),
         Project::new(
             "dev.jerryimmouse",
             "Written in learning purposes. Simple site you're on now.",
-            "url",
+            "https://github.com/JerryImMouse/dev.jerryimmouse",
             "./public/images/sample-ferris.jpg",
         ),
         Project::new(
             "TypeAuthD",
             "SS14 & Discord OAuth2 \"linker\". Provides interface for the game to link discord and SS14 account written in TypeScript",
-            "url",
+            "https://github.com/JerryImMouse/typeauthd",
             "./public/images/typeauthd-login-page.png",
         ),
         Project::new(
             "S.T.A.L.K.E.R 14",
             "SS14 build with original S.T.A.L.K.E.R motives written in C#",
-            "url",
+            "https://github.com/stalker14-project/stalker-14",
             "./public/images/stalker-logo.png",
         ),
     ]);
