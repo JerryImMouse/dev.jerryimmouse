@@ -15,11 +15,9 @@ pub fn Footer() -> impl IntoView {
     };
 
     view! {
-        <footer class="bg-slate-950/70 text-gray-300 text-center py-4 mt-auto shadow-inner flex flex-row justify-center gap-1 z-10">
+        <footer class="flex z-10 flex-row gap-1 justify-center py-4 mt-auto text-center text-gray-300 shadow-inner bg-slate-950/70">
             <p class="text-sm">"Powered with ❤️ by Leptos"</p>
-            <button
-                on:click=send_toast
-            >":3"</button>
+            <button on:click=send_toast>":3"</button>
         </footer>
     }
 }

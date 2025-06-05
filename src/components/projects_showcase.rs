@@ -35,14 +35,12 @@ pub fn ProjectsShowcase() -> impl IntoView {
     view! {
         <section
             id="projects"
-            class="scroll-mt-10 px-4 sm:px-6 py-12 bg-transparent text-white min-h-screen relative z-10"
+            class="relative z-10 py-12 px-4 min-h-screen text-white bg-transparent sm:px-6 scroll-mt-10"
         >
-            <h2 class="text-3xl sm:text-4xl font-bold mb-10 text-center">
-                "My Projects"
-            </h2>
+            <h2 class="mb-10 text-3xl font-bold text-center sm:text-4xl">"My Projects"</h2>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-                <For each=move || projects.get() key=move |x| *x let:project >
+            <div class="grid grid-cols-1 gap-8 mx-auto max-w-7xl sm:grid-cols-2 lg:grid-cols-3">
+                <For each=move || projects.get() key=move |x| *x let:project>
                     <ProjectCard _project=project />
                 </For>
             </div>

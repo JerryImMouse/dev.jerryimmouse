@@ -8,8 +8,7 @@ pub fn ParticlesBackground() -> impl IntoView {
     Effect::new(move |_| {
         if node_ref.get().is_some() {
             let timeout_callback = Closure::wrap(Box::new(|| {
-                let script = format!(
-                    r#"
+                let script = r#"
                     if (typeof particlesJS !== 'undefined') {{
                         particlesJS.load('particles-js', './public/particles.json', function() {{
                             console.log('callback - particles.js config loaded');
@@ -18,9 +17,8 @@ pub fn ParticlesBackground() -> impl IntoView {
                     }} else {{
                         console.warn('particles.js library not loaded');
                     }}
-                    "#
-                );
-                let _ = web_sys::js_sys::eval(&script);
+                    "#;
+                let _ = web_sys::js_sys::eval(script);
             }) as Box<dyn Fn()>);
 
             let window = web_sys::window().unwrap();
@@ -37,7 +35,7 @@ pub fn ParticlesBackground() -> impl IntoView {
         <div
             id="particles-js"
             node_ref=node_ref
-            class="fixed top-0 left-0 w-full h-full bg-slate-900 z-0"
+            class="fixed top-0 left-0 z-0 w-full h-full bg-slate-900"
         ></div>
     }
 }

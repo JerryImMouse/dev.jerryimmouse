@@ -17,14 +17,12 @@ where
 {
     let toaster = expect_context::<Toaster>();
     view! {
-        <div class="fixed right-4 bottom-5 z-50 w-full max-w-md px-4 md:px-0 space-y-2">
-            <For
-                each=move || toaster.toasts.get() key=|toast| *toast let:toast
-            >
+        <div class="fixed right-4 bottom-5 z-50 px-4 space-y-2 w-full max-w-md md:px-0">
+            <For each=move || toaster.toasts.get() key=|toast| *toast let:toast>
                 {
                     set_timeout(
                         move || toaster.remove_toast(&toast),
-                        toast.duration.unwrap_or_default().into()
+                        toast.duration.unwrap_or_default().into(),
                     );
                     match toast.level.unwrap_or_default() {
                         ToastLevel::Normal => default_view(toast),
@@ -44,31 +42,35 @@ pub fn DefaultToaster() -> impl IntoView {
         <Toaster
             default_view=move |toast: Toast| {
                 view! {
-                    <div class="bg-slate-700 text-white px-4 py-2 rounded shadow">
+                    <div class="py-2 px-4 text-white rounded shadow bg-slate-700">
                         <span>{toast.message.get_value()}</span>
                     </div>
-                }.into_any()
+                }
+                    .into_any()
             }
             info_view=move |toast: Toast| {
                 view! {
-                    <div class="bg-blue-500 text-white px-4 py-2 rounded shadow">
+                    <div class="py-2 px-4 text-white bg-blue-500 rounded shadow">
                         <span>{toast.message.get_value()}</span>
                     </div>
-                }.into_any()
+                }
+                    .into_any()
             }
             warning_view=move |toast: Toast| {
                 view! {
-                    <div class="bg-yellow-400 text-black px-4 py-2 rounded shadow">
+                    <div class="py-2 px-4 text-black bg-yellow-400 rounded shadow">
                         <span>{toast.message.get_value()}</span>
                     </div>
-                }.into_any()
+                }
+                    .into_any()
             }
             error_view=move |toast: Toast| {
                 view! {
-                    <div class="bg-red-600 text-white px-4 py-2 rounded shadow">
+                    <div class="py-2 px-4 text-white bg-red-600 rounded shadow">
                         <span>{toast.message.get_value()}</span>
                     </div>
-                }.into_any()
+                }
+                    .into_any()
             }
         />
     }
