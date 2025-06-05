@@ -14,7 +14,7 @@ pub fn App() -> impl IntoView {
     provide_toaster_context();
 
     view! {
-        <Link rel="shortcut icon" type_="image/ico" href="/public/favicon.ico"/>
+        <Link rel="shortcut icon" type_="image/ico" href="public/favicon.ico"/>
         <Title text="dev.jerryimmouse" />
         <Router base="/dev.jerryimmouse">
             <Routes fallback=HotFoundPage>
